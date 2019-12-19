@@ -12,6 +12,10 @@ const NavBar = styled.nav`
 	font-size: 1.4rem;
 `;
 
+// const Logo = styled.img`
+	
+// `;
+
 const FlexContainer = styled.div`
 	max-width: 120%;
 	display: flex;
