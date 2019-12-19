@@ -15,15 +15,16 @@ const NavBar = styled.nav`
 const FlexContainer = styled.div`
 	max-width: 120%;
 	display: flex;
-	margin: auto;
+	margin: 1% auto;
 	padding: 0 2%;
 	justify-content: space-evenly;
+	align-items: center;
 	height: 5%;
 
 	a {
 		text-decoration: none;
 		color: #46d2a3;
-		width: 80%;
+		width: 60%;
 		max-width: 100%;
 		border-bottom: 1px solid transparent;
 		margin: 0 1.5%;
@@ -46,9 +47,9 @@ export default function Navbar(props) {
 				<a href='https://www.github.com'>Stories</a>
 				<a href='https://www.github.com'>Staff</a>
 				<a href='https://www.github.com'>Contact</a>
+				<Button>Log In</Button>
+				<Button primary>Register</Button>
 			</FlexContainer>
-			<Button>Log In</Button>
-			<Button primary>Register</Button>
 		</NavBar>
 	);
 }

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
 	background: white;
 	color: #46d2a3;
-	width: 10%;
+	width: 20%;
 	height: 2%;
 	border-radius: 5px;
 	border: 1px solid #232328;
@@ -16,6 +16,11 @@ const Button = styled.button`
 			background: #46d2a3;
 			color: white;
 		`};
+
+	&:hover {
+		background: none;
+		border-bottom: 1px solid #ffffff;
+	}
 `;
 
 // const Container = styled.div`text-align: center;`;
