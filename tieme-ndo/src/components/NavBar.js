@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBar = styled.nav`
@@ -13,7 +14,7 @@ const NavBar = styled.nav`
 `;
 
 // const Logo = styled.img`
-	
+
 // `;
 
 const FlexContainer = styled.div`
@@ -47,10 +48,10 @@ export default function Navbar(props) {
 	return (
 		<NavBar>
 			<FlexContainer>
-				<a href='https://www.github.com'>About Us</a>
-				<a href='https://www.github.com'>Stories</a>
-				<a href='https://www.github.com'>Staff</a>
-				<a href='https://www.github.com'>Contact</a>
+				<Link to='/about'>About Us</Link>
+				<Link to='/stories'>Stories</Link>
+				<Link to='/staff'>Staff</Link>
+				<Link to='/contact'>Contact</Link>
 				<Button>Log In</Button>
 				<Button primary>Register</Button>
 			</FlexContainer>
