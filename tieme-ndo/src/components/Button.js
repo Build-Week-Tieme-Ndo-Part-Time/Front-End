@@ -3,12 +3,12 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
 	background: white;
 	color: #46d2a3;
-	width: 20%;
+	width: 30%;
 	height: 2%;
 	border-radius: 5px;
 	border: none;
-	margin: 0.5%;
-	padding: 1%;
+	margin: 1%;
+	padding: 2%;
 
 	${(props) =>
 		props.primary &&

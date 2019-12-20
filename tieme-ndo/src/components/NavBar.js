@@ -42,7 +42,7 @@ const FlexContainer = styled.div`
 `;
 
 const ButtonFlexContainer = styled.div`
-	width: 20%;
+	width: 30%;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
