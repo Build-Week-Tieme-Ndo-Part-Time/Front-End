@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './Button';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Login from './Login';
 
 const NavBar = styled.nav`
 	position: fixed;
@@ -13,13 +14,11 @@ const NavBar = styled.nav`
 	font-size: 1.4rem;
 `;
 
-// const Logo = styled.img`
-
-// `;
+//Space for LOGO here if needed.
 
 const FlexContainer = styled.div`
 	max-width: 120%;
-	width: 60%;
+	width: 100%;
 	display: flex;
 	margin: 1% auto;
 	padding: 0 2%;
@@ -30,7 +29,7 @@ const FlexContainer = styled.div`
 	a {
 		text-decoration: none;
 		color: #46d2a3;
-		max-width: 100%;
+		width: 10%;
 		border-bottom: 1px solid transparent;
 		margin: 0 1.5%;
 		text-decoration: none;
@@ -42,7 +41,14 @@ const FlexContainer = styled.div`
 	}
 `;
 
-// const NavLinks = styled.a``;
+const ButtonFlexContainer = styled.div`
+	width: 20%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+`;
+
+// Original code - might need later? const NavLinks = styled.a``;
 
 export default function Navbar(props) {
 	return (
@@ -51,10 +57,12 @@ export default function Navbar(props) {
 				<FlexContainer>
 					<Link to='/'>Home</Link>
 					<Link to='/about'>About Us</Link>
+					{/* <Link to='/login'>Login</Link> */}
 					<Link to='/clientlist'>Clients</Link>
-					<Link to='/contact'>Contact</Link>
-					<Button>Log In</Button>
-					<Button primary>Register</Button>
+					<ButtonFlexContainer>
+						<Button onClick={Login}>Log In</Button>
+						<Button primary>Register</Button>
+					</ButtonFlexContainer>
 				</FlexContainer>
 			</NavBar>
 		</div>
