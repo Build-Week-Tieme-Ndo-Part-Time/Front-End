@@ -46,15 +46,17 @@ const FlexContainer = styled.div`
 
 export default function Navbar(props) {
 	return (
-		<NavBar>
-			<FlexContainer>
-				<Link to='/about'>About Us</Link>
-				<Link to='/stories'>Stories</Link>
-				<Link to='/staff'>Staff</Link>
-				<Link to='/contact'>Contact</Link>
-				<Button>Log In</Button>
-				<Button primary>Register</Button>
-			</FlexContainer>
-		</NavBar>
+		<div>
+			<NavBar>
+				<FlexContainer>
+					<Link to='/'>Home</Link>
+					<Link to='/about'>About Us</Link>
+					<Link to='/clientlist'>Clients</Link>
+					<Link to='/contact'>Contact</Link>
+					<Button>Log In</Button>
+					<Button primary>Register</Button>
+				</FlexContainer>
+			</NavBar>
+		</div>
 	);
 }
