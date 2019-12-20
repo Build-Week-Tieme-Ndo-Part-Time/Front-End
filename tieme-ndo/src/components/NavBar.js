@@ -18,6 +18,7 @@ const NavBar = styled.nav`
 
 const FlexContainer = styled.div`
 	max-width: 120%;
+	width: 60%;
 	display: flex;
 	margin: 1% auto;
 	padding: 0 2%;
@@ -28,7 +29,6 @@ const FlexContainer = styled.div`
 	a {
 		text-decoration: none;
 		color: #46d2a3;
-		width: 60%;
 		max-width: 100%;
 		border-bottom: 1px solid transparent;
 		margin: 0 1.5%;
