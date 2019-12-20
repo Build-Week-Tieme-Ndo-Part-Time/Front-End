@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -9,10 +9,16 @@ import ClientCard from './components/ClientCard';
 
 // Switch is like a JS switch statement. The switch determines which of the following routes it will render.
 function App() {
+	// Click event for login button
+	// login = () => {
+	// 	this.setState({window.open('./Login.js')});
+	// };
+
 	return (
 		<div className='App'>
 			<header className='App-header'>
 				<Navbar />
+				{/* login={this.login} */}
 				<p>
 					Edit <code>src/App.js</code> and save to reload.
 				</p>
