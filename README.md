@@ -5,3 +5,13 @@
 ### Color Palette: https://coolors.co/333333-4e4e4e-ffffff-232328-46d2a3
 
 #### Styled with: https://www.styled-components.com/
+
+
+* Take a look at the endpoints that our API has to offer in `server.js`.
+
+  * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'Lambda School', password: 'i<3Lambd4' }`
+  * **[GET]** to `/api/clients`: returns the list of clients.
+  * **[GET]** to `/api/clients/123`: returns the client with the id passed as part of the URL (123 in example).
+  * **[POST]** to `/api/clients`: creates a client and return the new list of clients. Pass the client as the `body` of the request (the second argument passed to `axios.post`).
+  * **[PUT]** to `/api/clients/:id`: updates the client using the `id` passed as part of the URL. Send the an object with the updated information as the `body` of the request (the second argument passed to `axios.put`).
+  * **[DELETE]** to `/api/clients/123`: removes the client using the `id` passed as part of the URL (123 in example).
