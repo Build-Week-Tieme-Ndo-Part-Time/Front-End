@@ -16,7 +16,7 @@
   * **[PUT]** to `/api/clients/:id`: updates the client using the `id` passed as part of the URL. Send the an object with the updated information as the `body` of the request (the second argument passed to `axios.put`).
   * **[DELETE]** to `/api/clients/123`: removes the client using the `id` passed as part of the URL (123 in example).
 
-  * ** {
+  * {
     id: 0,
     name: 'Bob',
     village: 'MARAKA',
