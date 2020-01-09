@@ -60,7 +60,7 @@ export default function Navbar(props) {
 					{/* <Link to='/login'>Login</Link> */}
 					<Link to='/clientlist'>Clients</Link>
 					<ButtonFlexContainer>
-						<Button>Log In</Button>
+						<Button component='Login'>Log In</Button>
 						{/* Will try this again later: onClick={this.props.login}*/}
 						<Button primary>Register</Button>
 					</ButtonFlexContainer>
