@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
@@ -7,7 +7,8 @@ import HomePage from './components/HomePage';
 import UpdatedClient from './components/UpdatedClient';
 import ClientList from './components/ClientList';
 import ClientCard from './components/ClientCard';
-
+import SignUp from './components/Signup';
+import PrivateRoute from './components/PrivateRoute';
 // Switch is like a JS switch statement. The switch determines which of the following routes it will render.
 function App() {
 	return (
@@ -25,6 +26,8 @@ function App() {
 					Learn React
 				</a>
 			</header>
+
+      <Navbar />
 			<Route exact path='/login' component={Login} />
 			<Route
 				exact
@@ -48,6 +51,8 @@ function App() {
 					return <ClientCard {...routeProps} />;
 				}}
 			/>
+
+			<Route exact path='/signup' component={SignUp} />
 		</div>
 	);
 }
