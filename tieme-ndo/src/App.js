@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
 import UpdatedClient from './components/UpdatedClient';
-import ClientList from './components/ClientList';
+import Client from './components/Client';
 import ClientCard from './components/ClientCard';
 import SignUp from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
@@ -13,7 +12,6 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
 	return (
 		<div className='App'>
-			<Route exact path='/login' component={Login} />
 			{
 				//<Route exact path="/" render={() => { return <HomePage />;}}/>
 			}
@@ -27,7 +25,7 @@ function App() {
 				</a>
 			</header>
 
-      <Navbar />
+			<Navbar />
 			<Route exact path='/login' component={Login} />
 			<Route
 				exact
@@ -38,9 +36,9 @@ function App() {
 			/>
 			<Route
 				exact
-				path='/clientlist'
+				path='/client'
 				render={() => {
-					return <ClientList />;
+					return <Client />;
 				}}
 			/>
 			<Route exact path='/update-client/:id' component={UpdatedClient} />
