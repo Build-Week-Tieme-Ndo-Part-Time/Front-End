@@ -4,6 +4,7 @@ import { Login } from './components/Login';
 import ClientList from './components/ClientList';
 import Client from './components/Client';
 import { UpdatedClient } from './components/UpdatedClient';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -13,6 +14,28 @@ function App() {
       <Route exact path="/login" component={Login} />
       {//<Route exact path="/" render={() => { return <HomePage />;}}/>
       }
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <Route exact path="/login" component={Login} />
+      <Route 
+        exact 
+        path="/"
+        render={() => {
+          return <HomePage />; 
+        }}
+      />
       <Route
         exact
         path="/clientlist"
@@ -24,10 +47,11 @@ function App() {
         exact
         path='/update-client/:id' component={UpdatedClient}
       />
-      <Route
+
+      <Route 
         path="/clientlist/:id"
         render={routeProps => {
-          return <Client {...routeProps}  />;
+          return <ClientCard {...routeProps}  />;
         }}
       />
     </div>
