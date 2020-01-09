@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import EndlessRiver from "../Images/EndlessRiver.jpg";
+import signupUser from "../actions";
 import "../App.css";
 
 const Container = styled.div`
@@ -82,33 +83,30 @@ const Linked = styled(Link)`
 
 class SignUp extends Component {
   state = {
-    profile: {
-      username: "",
-      password: ""
-    }
+    username: "",
+    password: ""
   };
 
   handleChange = e => {
     this.setState({
-      profile: {
-        ...this.state.profile,
-        [e.target.name]: e.target.value
-      }
+      ...this.state,
+      [e.target.name]: e.target.value
     });
   };
 
-  /* 
-    loginSubmit = e => {
-      axiosWithAuth().post("/login" this.state.profile)
-      .then(res => {
-        console.log("Login,js: I got you a dollar", res);
-        localeStorage.setItem('token', res.data.payload);
-        thisprops.history.push('/')
+  SignupSubmit = e => {
+    e.preventDefault();
+    let username = this.state.username;
+    let password = this.state.password;
+    props
+      .signupUser(username, password)
+      .then(() => {
+        this.history.push("/clients");
       })
-      .catch(err => console.log('Login.js: You gotta be quicker than that:', err.message)
-      );
-    };
-  */
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
@@ -118,28 +116,28 @@ class SignUp extends Component {
             <img src={require("../corncob.svg")} />
             <h1>Create Account</h1>
           </div>
-          <Form className="form-form">
+          <Form className="form-form" onSubmit={this.SignupSubmit}>
             <Input
               placeholder="Username"
               type="text"
               name="username"
-              value={this.state.profile.username}
+              value={this.state.username}
               onChange={this.handleChange}
             />
             <Input
               placeholder="Password"
               type="password"
               name="password"
-              value={this.state.profile.password}
+              value={this.state.password}
               onChange={this.handleChange}
             />
-            <Button>Sign Up</Button>
+            <Button type="submit">Sign Up</Button>
           </Form>
         </SignUpContainer>
         <LoginContainer>
           <h1>Welcome Back!</h1>
           <p>To connect with us login in to your account</p>
-          <Linked to="/Login">Login</Linked>
+          <Linked to="/login">Login</Linked>
         </LoginContainer>
       </Container>
     );

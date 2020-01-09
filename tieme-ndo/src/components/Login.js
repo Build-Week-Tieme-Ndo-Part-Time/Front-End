@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import axios from "axios";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { loginUser } from "../actions";
 import EndlessRiver from "../Images/EndlessRiver.jpg";
 
 const Container = styled.div`
@@ -81,10 +83,8 @@ const Linked = styled(Link)`
 
 class Login extends Component {
   state = {
-    profile: {
-      username: "",
-      password: ""
-    }
+    username: "",
+    password: ""
   };
 
   handleChange = e => {
@@ -96,18 +96,21 @@ class Login extends Component {
     });
   };
 
-  /* 
-    loginSubmit = e => {
-      axiosWithAuth().post("/login" this.state.profile)
-      .then(res => {
-        console.log("Login,js: I got you a dollar", res);
-        localeStorage.setItem('token', res.data.payload);
-        thisprops.history.push('/')
-      })
-      .catch(err => console.log('Login.js: You gotta be quicker than that:', err.message)
-      );
+  loginSubmit = e => {
+    e.preventDefault();
+    let userInfo = {
+      username: this.state.username,
+      password: this.state.password
     };
-  */
+    this.props
+      .loginUser(userInfo)
+      .then(() => {
+        this.props.history.push("/clients");
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  };
 
   render() {
     return (
@@ -122,14 +125,14 @@ class Login extends Component {
               placeholder="Username"
               type="text"
               name="username"
-              value={this.state.profile.username}
+              value={this.state.username}
               onChange={this.handleChange}
             />
             <Input
               placeholder="Password"
               type="password"
               name="password"
-              value={this.state.profile.password}
+              value={this.state.password}
               onChange={this.handleChange}
             />
             <Button>Login</Button>
@@ -145,4 +148,13 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = {
+  loginUser
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Login)
+);
