@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
-import { Login } from './components/Login';
-import ClientList from './components/ClientList';
-import Client from './components/Client';
-import { UpdatedClient } from './components/UpdatedClient';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
+import HomePage from './components/HomePage';
+import ClientList from './components/ClientList';
+import ClientCard from './components/ClientCard';
 
+// Switch is like a JS switch statement. The switch determines which of the following routes it will render.
 function App() {
   
   return (
