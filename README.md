@@ -1,6 +1,7 @@
 # Front-End
 
-### Deployed to: https://gifted-darwin-f23160.netlify.com/
+#### Tieme Ndo website: https://tiemendo.com/
+### Our project deployed to: https://gifted-darwin-f23160.netlify.com/
 
 ### Trello Board: https://trello.com/b/9kBU5226/build-week
 ### Product Canvas: https://docs.google.com/document/d/1Hnm_dfBQ3008gCqO0bb2n3Dc6GF7xzna2v1Gc5s8pKg/edit?usp=sharing
