@@ -13,9 +13,9 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
   return (
     <div className='App'>
-      <PrivateRoute exact path="/" component={ClientCard} />
+      <PrivateRoute exact path="/clients" component={Client} />
       <Route exact path='/signup' component={SignUp} />
-      <Route exact path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
       {
         //<Route exact path="/" render={() => { return <HomePage />;}}/>
       }
