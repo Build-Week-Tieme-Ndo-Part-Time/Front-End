@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import EndlessRiver from "../Images/EndlessRiver.jpg";
-import signupUser from "../actions";
+import { signupUser } from "../actions";
 import "../App.css";
 
 const Container = styled.div`
@@ -81,67 +82,68 @@ const Linked = styled(Link)`
   align-items: center;
 `;
 
-class SignUp extends Component {
-  state = {
-    username: "",
-    password: ""
+function SignUp(props) {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [pending, setPending] = useState(false)
+  const { history } = props
+
+
+
+  const SignupSubmit = async e => {
+    if (e) {
+      e.preventDefault();
+      try {
+        await props.signupUser(username, password);       
+          history.push("/login");
+      }
+      catch (err) {
+        console.log("SignUp.js",err)
+      }
+    }
   };
 
-  handleChange = e => {
-    this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  SignupSubmit = e => {
-    e.preventDefault();
-    let username = this.state.username;
-    let password = this.state.password;
-    props
-      .signupUser(username, password)
-      .then(() => {
-        this.history.push("/clients");
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  render() {
-    return (
-      <Container className="container-signup">
-        <SignUpContainer className="container-form">
-          <div>
-            <img src={require("../corncob.svg")} />
-            <h1>Create Account</h1>
-          </div>
-          <Form className="form-form" onSubmit={this.SignupSubmit}>
-            <Input
-              placeholder="Username"
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-            <Input
-              placeholder="Password"
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-            <Button type="submit">Sign Up</Button>
-          </Form>
-        </SignUpContainer>
-        <LoginContainer>
-          <h1>Welcome Back!</h1>
-          <p>To connect with us login in to your account</p>
-          <Linked to="/login">Login</Linked>
-        </LoginContainer>
-      </Container>
-    );
-  }
+  return (
+    <Container className="container-signup">
+      <SignUpContainer className="container-form">
+        <div>
+          <img src={require("../corncob.svg")} />
+          <h1>Create Account</h1>
+        </div>
+        <Form className="form-form" onSubmit={SignupSubmit}>
+          <Input
+            placeholder="Username"
+            type="text"
+            name="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <Button type="submit">Sign Up</Button>
+        </Form>
+      </SignUpContainer>
+      <LoginContainer>
+        <h1>Welcome Back!</h1>
+        <p>To connect with us login in to your account</p>
+        <Linked to="/login">Login</Linked>
+      </LoginContainer>
+    </Container>
+  );
 }
 
-export default SignUp;
+const mapDispatchToProps = {
+  signupUser
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(SignUp)
+);
