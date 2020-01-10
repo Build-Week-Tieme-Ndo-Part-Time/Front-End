@@ -2,7 +2,7 @@ import React from 'react';
 
 const ClientCard = props => {
 
-  const {name, village, loanAmount, loanInitDate, dueDate, maizeHarvest, maizeToSell} = props.client;
+  const {name, village, loanAmount, loanInitDate, dueDate, maizeHarvest, maizeToSell} = props;
 
   return (
     <div className="client-card">
