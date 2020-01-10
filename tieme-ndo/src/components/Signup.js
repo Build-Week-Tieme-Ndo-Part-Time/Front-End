@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import EndlessRiver from "../Images/EndlessRiver.jpg";
 import { signupUser } from "../actions";
-import "../App.css";
+// import "../App.css";
 
 const Container = styled.div`
   width: 100%;
@@ -94,11 +94,11 @@ function SignUp(props) {
     if (e) {
       e.preventDefault();
       try {
-        await props.signupUser(username, password);       
-          history.push("/login");
+        await props.signupUser(username, password);
+        history.push("/login");
       }
       catch (err) {
-        console.log("SignUp.js",err)
+        console.log("SignUp.js", err)
       }
     }
   };
