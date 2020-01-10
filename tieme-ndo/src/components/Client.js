@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ClientCard from './ClientCard';
 import {Link} from 'react-router-dom';
-import {api} from '../utils/api';
+import { axiosWithAuth } from "../axiosWithAuth";
 
 export default class Client extends React.Component {
 
@@ -41,7 +41,7 @@ export default class Client extends React.Component {
         <Link to={`/update-client/${this.state.client.id}`}>Update Client</Link>
         <button onClick={(e) => {
           e.preventDefault()
-          api().delete(`/clients/${this.state.client.id}`)
+          axiosWithAuth().delete(`/clients/${this.state.client.id}`)
             .then(res =>{
               console.log(res)
               this.props.history.push('/')

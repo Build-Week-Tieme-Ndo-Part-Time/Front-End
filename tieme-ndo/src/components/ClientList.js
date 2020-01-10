@@ -1,46 +1,58 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React from 'react';
+import {connect} from 'react-redux';
+import {deleteClient, editClient} from '../actions/index.js';
 import {Link} from 'react-router-dom';
 import ClientCard from './ClientCard';
+import UpdatedClient from './UpdatedClient.js';
 
-export default class ClientList extends Component {
+const ClientList = props => {
+  console.log(props);
+  const [open, setOpen] = React.useState(false);
+  const [item, setItem] = React.useState();
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      clients: []
-    };
-  }
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-  componentDidMount() {
-    axios
-      .get('http://localhost:5000/api/clients')
-      .then(res => this.setState({ clients: res.data }))
-      .catch(err => console.log(err.response));
-  }
-
-  componentDidUpdate() {
-    axios
-      .get('http://localhost:5000/api/clients')
-      .then(res => this.setState({ clients: res.data }))
-      .catch(err => console.log(err.response));
-  }
-
-  render() {
-    return (
-      <div className='client-list'>
-        {this.state.clients.map(client => (
-          <ClientDetails key={client.id} client={client} />
-        ))}
-      </div>
-    );
-  }
-}
-
-function ClientDetails({ client }) {
   return (
-    <Link to={`/clientlist/${client.id}`}>
-      <ClientCard client={client} />
-    </Link>
+    <div>
+      {props.clients.map((client, index) => (
+        <div>
+          <ClientCard />
+          <button
+            onClick={e => {
+              // console.log('click')
+              e.preventDefault();
+              props.deleteClient(client);
+            }}
+          >
+            delete
+          </button>
+          <button
+            onClick={e => {
+              e.preventDefault();
+              handleOpen();
+              setItem(client);
+
+              console.log(client);
+            }}
+          >
+            Edit
+          </button>
+        </div>
+      ))}
+      <UpdatedClient {...props} category={item} />
+    </div>
   );
-}
+};
+
+const mapStateToProps = state => {
+  return {
+    clients: state.clients
+  };
+};
+
+export default connect(mapStateToProps, {deleteClient, editClient})(ClientList);
