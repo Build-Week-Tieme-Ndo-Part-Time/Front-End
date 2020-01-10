@@ -1,4 +1,5 @@
 import { axiosWithAuth } from "../axiosWithAuth";
+import axios from "axios";
 
 export const SIGNUP_POST_START = "SIGNUP_POST_START";
 export const SIGNUP_POST_SUCCESS = "SIGNUP_POST_SUCCESS";
@@ -10,8 +11,8 @@ export const LOGIN_POST_FAIL = "LOGIN_POST_FAIL";
 export const signupUser = (username, password) => dispatch => {
   dispatch({ type: SIGNUP_POST_START });
 
-  axiosWithAuth()
-    .post("/signup", { username, password })
+  axios
+    .post("https://build-tieme.herokuapp.com/api/auth/register", { username, password })
     .then(res => {
       localStorage.setItem("token", res.data.token);
       console.log("Signup.js: I got you a dollar", res);
@@ -29,15 +30,14 @@ export const signupUser = (username, password) => dispatch => {
     });
 };
 
-export const loginUser = userInfo => dispatch => {
+export const loginUser = (username, password) => dispatch => {
   dispatch({ type: LOGIN_POST_START });
 
   axiosWithAuth()
-    .post("/login", userInfo)
+    .post("https://build-tieme.herokuapp.com/api/auth/login", { username, password })
     .then(res => {
-      console.log("Login,js: I got you a dollar", res);
-      localStorage.setItem("token", res.data.payload);
-      this.props.history.push("/");
+      console.log("Login.js: I got you a dollar", res);
+      localStorage.setItem("token", res.data.token);
       dispatch({
         type: LOGIN_POST_SUCCESS,
         payload: res.data
