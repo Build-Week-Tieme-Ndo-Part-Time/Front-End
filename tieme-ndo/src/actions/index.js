@@ -61,7 +61,7 @@ export const fetchClient = () => dispatch => {
   dispatch({type:START_FETCHING});
 
   axiosWithAuth()
-  .get('/clients')
+  .get('/newClients')
     .then(response => dispatch({ type: FETCH_SUCCESS, payload: response.data }))
     .catch(error => dispatch({ type: FETCH_FAILURE, payload: error.response }));
 };
@@ -71,7 +71,7 @@ export const ADD_CLIENT = "ADD_CLIENT";
 
 export const addClient = id => dispatch => {
   axiosWithAuth()
-    .post('https://build-tieme.herokuapp.com/newClients', id)
+    .post('/newClients', id)
     .then(response => dispatch({type:ADD_CLIENT, payload: id}) & console.log(response, "addClient"))
     .catch(response => dispatch({type: ADD_CLIENT, payload: id}))
 }
@@ -81,7 +81,7 @@ export const EDIT_CLIENT = "EDIT_CLIENT";
 
 export const editClient = id => dispatch => {
   axiosWithAuth()
-    .put('https://build-tieme.herokuapp.com/clients')
+    .put(`/newClients/${id.id}`, id)
     .then(response => dispatch({EDIT_CLIENT, payload: id}))
     .catch(error => console.log(error));
 }
@@ -91,7 +91,7 @@ export const DELETE_CLIENT = "DELETE_CLIENT";
 
 export const deleteClient = id => dispatch => {
   axiosWithAuth()
-    .delete("clients/${id.id}")
+    .delete(`/newClients/${id.id}`)
     .then(response => dispatch({type: DELETE_CLIENT, payload: id}))
     .catch(error => console.log(error))
 }

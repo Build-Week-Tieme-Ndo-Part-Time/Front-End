@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {deleteClient, editClient} from '../actions/index.js';
 import {Link} from 'react-router-dom';
-import ClientCard from './ClientCard';
 import UpdatedClient from './UpdatedClient.js';
 
 const ClientList = props => {
@@ -21,7 +20,15 @@ const ClientList = props => {
     <div>
       {props.clients.map((client, index) => (
         <div>
-          <ClientCard />
+          <p>{client.first_name}</p>
+          <p>{client.last_name}</p>
+          <p>{client.village_name}</p>
+          <p>{client.original_loan_amount}</p>
+          <p>{client.loanInitDate}</p>
+          <p>{client.dueDate}</p>
+          <p>{client.amount_owed}</p>
+          <p>{client.harvest_goal}</p>
+          <p>{client.harvest_amount}</p>
           <button
             onClick={e => {
               // console.log('click')

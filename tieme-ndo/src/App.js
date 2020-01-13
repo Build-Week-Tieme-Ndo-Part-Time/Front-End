@@ -4,9 +4,10 @@ import './App.css';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
 import UpdatedClient from './components/UpdatedClient';
-import ClientList from './components/ClientList';
+import ClientListTable from './components/ClientListTable';
 import SignUp from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
+import CreateClient from "./components/CreateClient";
 // Switch is like a JS switch statement. The switch determines which of the following routes it will render.
 function App() {
 	return (
@@ -15,9 +16,9 @@ function App() {
 
 			<Route exact path='/' component={HomePage} />
 
-			<Route exact path='clientlist' component={ClientList} />
+			<Route exact path='/update-client' component={UpdatedClient} />
 
-			<Route exact path='/update-client/:id' component={UpdatedClient} />
+			<Route exact path='/createclient' component={CreateClient} />
 
 			<Route exact path='/signup' component={SignUp} />
 		</div>
