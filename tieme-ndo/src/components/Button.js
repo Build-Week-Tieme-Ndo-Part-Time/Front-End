@@ -3,24 +3,24 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
 	background: white;
 	color: #46d2a3;
-	width: 30%;
-	height: 2%;
+	width: 60%;
+	height: 100%;
 	border-radius: 5px;
 	border: none;
-	margin: 1%;
-	padding: 2%;
+	margin: 5px;
+	padding: 10px;
 
 	${(props) =>
-		props.primary &&
-		css`
+    props.primary &&
+    css`
 			background: #46d2a3;
 			color: white;
 		`};
 
 	&:hover {
-		background: none;
-		cursor: pointer;
-		border-bottom: 1px solid #ffffff;
+		background: #46d2a3;
+    cursor: pointer;
+    color:white
 	}
 `;
 

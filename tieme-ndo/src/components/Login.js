@@ -81,6 +81,11 @@ const Linked = styled(Link)`
   align-items: center;
 `;
 
+const LogoContainer = styled.div`
+  display: flex
+  flex-direction: column
+`
+
 function Login(props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -114,10 +119,10 @@ function Login(props) {
   return (
     <Container className="container-login">
       <LoginContainer className="container-form">
-        <div>
+        <LogoContainer>
           <img src={require("../corncob.svg")} />
-          <h1>Log in to Tieme Duo!</h1>
-        </div>
+          <h1>Log in to Tieme Ndo!</h1>
+        </LogoContainer>
         <Form className="form-form" onSubmit={loginSubmit}>
           <Input
             placeholder="Username"

@@ -82,6 +82,11 @@ const Linked = styled(Link)`
   align-items: center;
 `;
 
+const LogoContainer = styled.div`
+  display: flex
+  flex-direction: column
+`
+
 function SignUp(props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -105,11 +110,16 @@ function SignUp(props) {
 
   return (
     <Container className="container-signup">
+      <LoginContainer>
+        <h1>Welcome Back!</h1>
+        <p>To connect with us login in to your account</p>
+        <Linked to="/login">Login</Linked>
+      </LoginContainer>
       <SignUpContainer className="container-form">
-        <div>
+        <LogoContainer className="logo-container">
           <img src={require("../corncob.svg")} />
           <h1>Create Account</h1>
-        </div>
+        </LogoContainer>
         <Form className="form-form" onSubmit={SignupSubmit}>
           <Input
             placeholder="Username"
@@ -128,11 +138,7 @@ function SignUp(props) {
           <Button type="submit">Sign Up</Button>
         </Form>
       </SignUpContainer>
-      <LoginContainer>
-        <h1>Welcome Back!</h1>
-        <p>To connect with us login in to your account</p>
-        <Linked to="/login">Login</Linked>
-      </LoginContainer>
+    
     </Container>
   );
 }

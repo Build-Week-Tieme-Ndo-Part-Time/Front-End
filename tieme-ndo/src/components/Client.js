@@ -12,33 +12,39 @@ export default class Client extends React.Component {
       clients: [
         {
           id: 0,
-          name: 'Bob',
-          village: 'MARAKA',
-          loanAmount: 200,
-          loanInitDate: Date.now(),
-          dueDate: '1995-12-17T03:24:00',
-          maizeHarvest: 50,
-          maizeToSell: 25
+          firstname: 'Bob',
+          lastname: 'Freeman',
+          villagename: 'MARAKA',
+          originalloanamount: 200,
+          loaninitiationdate: "01/01/2020",
+          loanduedate: '02/20/2020',
+          amountowed: '$50',
+          harvestgoal: 25,
+          harvestamount: 10
         },
         {
-          id: 1,
-          name: 'Stephen',
-          village: 'MARAKA',
-          loanAmount: 200,
-          loanInitDate: Date.now(),
-          dueDate: '1995-12-17T03:24:00',
-          maizeHarvest: 50,
-          maizeToSell: 25
+          id: 0,
+          firstname: 'Bob',
+          lastname: 'Freeman',
+          villagename: 'MARAKA',
+          originalloanamount: 200,
+          loaninitiationdate: "01/10/2020",
+          loanduedate: '05/20/2020',
+          amountowed: '$50',
+          harvestgoal: 25,
+          harvestamount: 10
         },
         {
-          id: 2,
-          name: 'Rob',
-          village: 'MARAKA',
-          loanAmount: 200,
-          loanInitDate: Date.now(),
-          dueDate: '1995-12-17T03:24:00',
-          maizeHarvest: 50,
-          maizeToSell: 25
+          id: 0,
+          firstname: 'Bob',
+          lastname: 'Freeman',
+          villagename: 'MARAKA',
+          originalloanamount: 200,
+          loaninitiationdate: "01/04/2020",
+          loanduedate: '04/05/2020',
+          amountowed: '$50',
+          harvestgoal: 25,
+          harvestamount: 10
         }
       ]
     };
@@ -92,16 +98,30 @@ export default class Client extends React.Component {
           // console.log(client)
           <ClientCard
             key={client.id}
-            name={client.name}
-            village={client.village}
-            loanAmount={client.loanAmount}
-            loanInitDate={client.loanInitDate}
-            dueDate={client.dueDate}
-            maizeHarvest={client.maizeHarvest}
-            maizeToSell={client.maizeToSell}
+            firstname={client.firstname}
+            lastname={client.lasttname}
+            villagename={client.villagename}
+            originalloanamount={client.originalloanamount}
+            loaninitiationdate={client.loaninitiationdate}
+            loanduedate={client.loanduedate}
+            amountowed={client.amountowed}
+            harvestgoal={client.harvestgoal}
+            harvestamount={client.harvestamount}
           />
         ))}
       </div>
     )
   }
 }
+
+// id: 0,
+//   firstname: 'Bob',
+//     lastname: 'Freeman',
+//       villagename: 'MARAKA',
+//         originalloanamount: 200,
+//           loaninitiationdate: Date.now(),
+//             loanduedate: '1995-12-17T03:24:00',
+//               amountowed: 50,
+//                 harvestgoal: 25,
+//                   harvestamount: 10
+//         }
