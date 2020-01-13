@@ -138,7 +138,7 @@ function Login(props) {
       </LoginContainer>
       <SignUpContainer>
         <h1>Hello, Friends!</h1>
-        <p>Join use today to start your journey</p>
+        <p>Join us today to start your journey.</p>
         <Linked to="/signup">Sign Up</Linked>
       </SignUpContainer>
     </Container>
