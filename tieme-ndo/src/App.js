@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import './App.css';
+// import Navbar from './components/Navbar';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
 import UpdatedClient from './components/UpdatedClient';
@@ -12,20 +13,14 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
 	return (
 		<div className='App'>
+			<PrivateRoute exact path='/clients' component={Client} />
+			<Route exact path='/signup' component={SignUp} />
+			<Route exact path='/' component={Login} />
 			{
 				//<Route exact path="/" render={() => { return <HomePage />;}}/>
 			}
-			<header className='App-header'>
-				{/* <img src={logo} className="App-logo" alt="logo" /> */}
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
 
-			<Navbar />
+			{/* <Navbar /> */}
 			<Route exact path='/login' component={Login} />
 			<Route
 				exact
@@ -36,7 +31,7 @@ function App() {
 			/>
 			<Route
 				exact
-				path='/client'
+				path='/clientlist'
 				render={() => {
 					return <Client />;
 				}}
@@ -49,8 +44,6 @@ function App() {
 					return <ClientCard {...routeProps} />;
 				}}
 			/>
-
-			<Route exact path='/signup' component={SignUp} />
 		</div>
 	);
 }
