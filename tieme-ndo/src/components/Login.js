@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import axios from "axios";
-import styled from "styled-components";
-import { Link, withRouter } from "react-router-dom";
-import { loginUser } from "../actions";
-import EndlessRiver from "../Images/EndlessRiver.jpg";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import styled from 'styled-components';
+import { Link, withRouter } from 'react-router-dom';
+import { loginUser } from '../actions';
+import EndlessRiver from '../Images/EndlessRiver.jpg';
 
 const Container = styled.div`
 	width: 100%;
@@ -82,67 +82,64 @@ const Linked = styled(Link)`
 `;
 
 function Login(props) {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [pending, setPending] = useState(false)
-  const { history } = props
+	const [ username, setUsername ] = useState('');
+	const [ password, setPassword ] = useState('');
+	const [ pending, setPending ] = useState(false);
+	const { history } = props;
 
-  // handleChange = e => {
-  //   this.setState({
-  //     profile: {
-  //       ...this.state.profile,
-  //       [e.target.name]: e.target.value
-  //     }
-  //   });
-  // };
+	// handleChange = e => {
+	//   this.setState({
+	//     profile: {
+	//       ...this.state.profile,
+	//       [e.target.name]: e.target.value
+	//     }
+	//   });
+	// };
 
-  const loginSubmit = async e => {
-    if (e) {
-      e.preventDefault();
-      try {
-        await props.loginUser(username, password);
-        history.push('/clients')
-      }
-      catch (err) {
-        console.log("Login.js", err)
-      }
-    }
+	const loginSubmit = async (e) => {
+		if (e) {
+			e.preventDefault();
+			try {
+				await props.loginUser(username, password);
+				history.push('/clients');
+			} catch (err) {
+				console.log('Login.js', err);
+			}
+		}
+	};
 
-
-  };
-
-  return (
-    <Container className="container-login">
-      <LoginContainer className="container-form">
-        <div>
-          <img src={require("../corncob.svg")} />
-          <h1>Log in to Tieme Duo!</h1>
-        </div>
-        <Form className="form-form" onSubmit={loginSubmit}>
-          <Input
-            placeholder="Username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          />
-          <Input
-            placeholder="Password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-          <Button>Login</Button>
-        </Form>
-      </LoginContainer>
-      <SignUpContainer>
-        <h1>Hello, Friends!</h1>
-        <p>Join us today to start your journey.</p>
-        <Linked to="/signup">Sign Up</Linked>
-      </SignUpContainer>
-    </Container>
-  );
+	return (
+		<Container className='container-login'>
+			<LoginContainer className='container-form'>
+				<div>
+					<img src={require('../corncob.svg')} />
+					<h1>Log in to Tieme Duo!</h1>
+				</div>
+				<Form className='form-form' onSubmit={loginSubmit}>
+					<Input
+						placeholder='Username'
+						type='text'
+						name='username'
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
+					/>
+					<Input
+						placeholder='Password'
+						type='password'
+						name='password'
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<Button>Login</Button>
+				</Form>
+			</LoginContainer>
+			<SignUpContainer>
+				<h1>Hello, Friends!</h1>
+				<p>Join us today to start your journey.</p>
+				<Linked to='/signup'>Sign Up</Linked>
+			</SignUpContainer>
+		</Container>
+	);
 }
 
 const mapDispatchToProps = {

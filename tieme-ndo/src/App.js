@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-// import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
 import UpdatedClient from './components/UpdatedClient';
@@ -20,7 +20,7 @@ function App() {
 				//<Route exact path="/" render={() => { return <HomePage />;}}/>
 			}
 
-			{/* <Navbar /> */}
+			<Navbar />
 			<Route exact path='/login' component={Login} />
 			<Route
 				exact

@@ -8,7 +8,7 @@ const Button = styled.button`
 	border-radius: 5px;
 	border: none;
 	margin: 1%;
-	padding: 2%;
+	padding: 2%; 
 
 	${(props) =>
 		props.primary &&
