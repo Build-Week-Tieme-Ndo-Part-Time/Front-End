@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Login from './Login';
 
-const NavBar = styled.nav`
-  position: fixed;
+const NavContainer = styled.div`
   height: 100%
 	width: 15%;
+`;
+
+const NavBar = styled.nav`
+  height: 100%
+	width: 100%;
 	background: #46d2a3;
 	z-index: 1;
 	font-size: 1.4rem;
@@ -47,7 +51,7 @@ const ButtonFlexContainer = styled.div`
 
 export default function Navbar(props) {
   return (
-    <div>
+    <NavContainer className='nav-container'>
       <NavBar>
         <FlexContainer>
           <Link to='/'>Home</Link>
@@ -59,6 +63,6 @@ export default function Navbar(props) {
           </ButtonFlexContainer>
         </FlexContainer>
       </NavBar>
-    </div>
+    </NavContainer>
   );
 }

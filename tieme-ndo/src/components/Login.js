@@ -106,7 +106,7 @@ function Login(props) {
       e.preventDefault();
       try {
         await props.loginUser(username, password);
-        history.push('/clients')
+        history.push('/homepage')
       }
       catch (err) {
         console.log("Login.js", err)

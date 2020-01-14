@@ -4,7 +4,7 @@ import './App.css';
 // import Navbar from './components/Navbar';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
-import UpdatedClient from './components/UpdatedClient';
+import AddClientForm from './components/AddClientForm';
 import Client from './components/Client';
 import ClientCard from './components/ClientCard';
 import SignUp from './components/Signup';
@@ -36,14 +36,9 @@ function App() {
           return <Client />;
         }}
       />
-      <Route exact path='/updatedclient' component={UpdatedClient} />
+      <PrivateRoute exact path='/addclient' component={AddClientForm} />
 
-      <Route
-        path='/clientlist/:id'
-        render={(routeProps) => {
-          return <ClientCard {...routeProps} />;
-        }}
-      />
+      <PrivateRoute exact path='/clientlist/:id' component={ClientCard} />
 
     </div>
   );
